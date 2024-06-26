@@ -21,6 +21,7 @@
     "os:allow-platform",
     "os:default",
     "notification:default",
-    "notification:allow-is-permission-granted"
+    "notification:allow-is-permission-granted",
+    "updater:default"
   ]
 }

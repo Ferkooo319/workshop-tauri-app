@@ -21,6 +21,14 @@
       "csp": null
     }
   },
+  "plugins": {
+    "updater": {
+      "endpoints": [
+        "https://cdn.crabnebula.app/update/my-awesome-org/my-awesome-app/{{target}}-{{arch}}/{{current_version}}"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI1MjUyMTNEMEM4OUEwNEUKUldST29Ja01QU0VsSlJCckxNQmwvZ29KMkFCcGdRUFNQNzQ4ZDlXWWtPOWZIc3Nnd0t0ZDhlYTQK"
+    }
+  },
   "bundle": {
     "macOS": {
       "signingIdentity": "-"
