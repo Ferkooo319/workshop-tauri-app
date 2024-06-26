@@ -19,6 +19,8 @@
     "dialog:allow-ask",
     "os:allow-locale",
     "os:allow-platform",
-    "os:default"
+    "os:default",
+    "notification:default",
+    "notification:allow-is-permission-granted"
   ]
 }
