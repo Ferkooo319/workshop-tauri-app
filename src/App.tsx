@@ -6,6 +6,7 @@ import { ask } from "@tauri-apps/plugin-dialog";
 import { createStore } from "solid-js/store";
 import { locale, platform } from "@tauri-apps/plugin-os"
 import {isPermissionGranted, requestPermission, sendNotification} from "@tauri-apps/plugin-notification";
+import { checkForAppUpdates } from "./updater.ts";
 
 function App() {
     const [system, setSystem] =
@@ -18,6 +19,7 @@ function App() {
   const [name, setName] = createSignal("");
 
   onMount(async() => {
+      await checkForAppUpdates();
       const plat = await platform();
       const loc = await locale();
       setSystem({platform: plat, locale: loc});
