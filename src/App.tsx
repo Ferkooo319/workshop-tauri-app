@@ -6,6 +6,7 @@ import { ask } from "@tauri-apps/plugin-dialog";
 import { createStore } from "solid-js/store";
 import { locale, platform } from "@tauri-apps/plugin-os"
 import {isPermissionGranted, requestPermission, sendNotification} from "@tauri-apps/plugin-notification";
+// import {checkForAppUpdates} from "./updater.ts";
 
 function App() {
     const [system, setSystem] =
@@ -18,10 +19,11 @@ function App() {
   const [name, setName] = createSignal("");
 
   onMount(async() => {
+      // await checkForAppUpdates();
+
       const plat = await platform();
       const loc = await locale();
       setSystem({platform: plat, locale: loc});
-  //
       const hasPermission = await isPermissionGranted();
       if (!hasPermission) {
           const permission = await requestPermission();
@@ -44,13 +46,13 @@ function App() {
           });
       }
 
-      const response = await ask("Do y like Tauri?", {
-         title: "Important question",
-         okLabel: "Yes",
-         cancelLabel: "Not yet."
-      });
-      //
-      console.info(response);
+      // const response = await ask("Do y like Tauri?", {
+      //    title: "Important question",
+      //    okLabel: "Yes",
+      //    cancelLabel: "Not yet."
+      // });
+      // //
+      // console.info(response);
   });
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
@@ -85,7 +87,7 @@ function App() {
         <input
           id="greet-input"
           onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter Feris name..."
+          placeholder="Enter your name..."
         />
         <button type="submit">Greet</button>
       </form>
